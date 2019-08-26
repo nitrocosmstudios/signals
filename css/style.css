@@ -1,0 +1,111 @@
+body{
+  background-color: #666666;
+  background-image: url('../img/lo/bg_vignette.png'), url('../img/lo/bg_audio.png');
+  background-position: top center;
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%, auto;
+  background-attachment: fixed;
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Tahoma, Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+#main, #header, #menu, #description{
+  background-color: rgba(40,40,40,0.6);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #AAAAAA;
+  width: 80%;
+  padding: 32px;
+  border-radius: 4px;
+  box-shadow: inset 2px 2px 1px rgba(255,255,255,0.4), inset -4px -4px 1px rgba(0,0,0,0.8), 8px 8px 16px #000000;
+  color: #EEEEEE;
+}
+
+label{
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-weight: bold;
+  
+}
+
+input, textarea{
+  width: 100%;
+  background-color: rgba(0,0,0,0.6);
+  border-width: 1px;
+  border-style: solid;
+  border-color: #AAAAAA;
+  color: #FFFFFF;
+  padding: 4px;
+}
+
+input[type=submit], #menu ul a{
+  margin-top: 16px;
+  cursor: pointer;
+  box-shadow: inset 2px 2px 1px rgba(255,255,255,0.4), inset -4px -4px 1px rgba(0,0,0,0.8), 4px 4px 8px #000000;
+  border-radius: 32px;
+  font-weight: bold;
+}
+
+input[type=submit]:hover{
+  background-color: #FF0000;
+  color: #000000;
+}
+
+select{
+  background-color: #000000;
+  color: #FFAA00;
+}
+
+#menu ul{
+  padding: 0px;
+  margin: 0px;
+}
+
+#menu ul li{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#menu ul a{
+  display: block;
+  color: #00AAFF;
+  float: left;
+  margin-top: 0px;
+  text-decoration: none;
+  padding: 16px;
+  margin: 0px;
+  margin-right: 18px;
+  position: relative;
+  top: -24px;
+  background-color: #000000;
+}
+
+#menu ul a:hover{
+  background-color: #FFDD00;
+  color: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
