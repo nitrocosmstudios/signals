@@ -18,6 +18,15 @@ function buildAFSKForm(){
       'required'  => true,  
     ),
     Array(
+      'id'        => 'from_call',
+      'name'      => 'from_call',
+      'label'     => 'Source callsign (AX.25 "from", up to 6 characters):',
+      'type'      => 'text',
+      'length'    => 6,
+      'value'     => 'NOCALL',
+      'required'  => true,  
+    ),
+    Array(
       'id'        => 'baud',
       'name'      => 'baud',
       'label'     => 'Baud rate (will conform to Bell standards):',
@@ -49,7 +58,7 @@ function buildAFSKForm(){
       'name'      => 'sample_rate',
       'label'     => 'Audio Sample Rate:',
       'type'      => 'menu',
-      'value'     => '16000',
+      'value'     => '48000',
       'required'  => false,
       'values'    => getSampleRates(),
       'onchange'  => "",
@@ -74,6 +83,7 @@ function buildAFSKForm(){
       $d = $form->getData();
       require('./dat/classes/afsk.php');
       $generator = new afsk($d['sample_rate']);
+      $generator->default_from = filter::alphanumeric($d['from_call'],6);
       $audio = $generator->genAFSK($d['string'],$d['mark_freq'],$d['space_freq'],$d['baud'],$d['volume']);
       $generator->addSamples($audio);      
       // Set headers to download as file.
@@ -91,6 +101,6 @@ function buildAFSKForm(){
 }
 
 $HTML['main'] .= buildAFSKForm();
-$HTML['description'] .= "AFSK is typically used in dial-up modems, APRS, EAS SAME, and caller ID.  Please note that this version is an imperfect, experimental implementation.";
+$HTML['description'] .= "AFSK Bell 202 with AX.25 UI framing (APRS-compatible). Decode with multimon-ng or Dire Wolf, not minimodem: <code>multimon-ng -a AFSK1200 -t wav file.wav</code>. Use 48000 Hz sample rate for best results at 1200 baud.";
 
 ?>
