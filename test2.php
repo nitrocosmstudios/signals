@@ -16,7 +16,7 @@ $dtmf = new dtmf(44100);
 //$audio = $dtmf->genDialTone(4000,75); // Generates a dial tone.
 //$audio = $dtmf->genWave('sine',440,2000,50); // Generates a plain sine wave.
 
-$audio = $dtmf->genDTMF('123456789',1,50,500,8); // Generates DTMF tones.
+$audio = $dtmf->genDTMF('5134791747',1,50,500,8); // Generates DTMF tones.
 
 $dtmf->addSamples($audio);
 file_put_contents('test.wav',$dtmf->buildWAV());
@@ -27,7 +27,7 @@ file_put_contents('test.wav',$dtmf->buildWAV());
 
 $morse = new morse(8000);
 
-$message = "Hello.  I like pie.  123456789.";
+$message = "Hello.  I like pie.  5134791747.";
 $audio = $morse->genMorse($message,20,440,25,20);
 
 $morse->addSamples($audio);
@@ -38,7 +38,7 @@ file_put_contents('test.wav',$morse->buildWAV());
 
 /*
 
-$afsk = new afsk(44100);
+$afsk = new afsk(48000);
 
 $msg = 'Nitrocosm Studios.  The biscuits and gravy of the Internet.  Lots of pie and yes it is.  Bagels and Meatloaf!';
 
@@ -48,9 +48,8 @@ $afsk->addSamples($audio);
 file_put_contents('test.wav',$afsk->buildWAV());
 
 
-// Test decoding.
-exec('minimodem -r -f ./test.wav 1200 > test.txt');
-$afsk->debugHex(file_get_contents('test.txt'));
+// Decode with multimon-ng (AX.25), not minimodem (raw async FSK only):
+// multimon-ng -a AFSK1200 -t wav ./test.wav
 
 */
 
@@ -60,7 +59,7 @@ $afsk->debugHex(file_get_contents('test.txt'));
 
 $mf = new mf(44100);
 
-$audio = $mf->genMF('123456789',1,50,500,8); // Generates MF tones.
+$audio = $mf->genMF('5134791747',1,50,500,8); // Generates MF tones.
 
 $mf->addSamples($audio);
 file_put_contents('test.wav',$mf->buildWAV());
